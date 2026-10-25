@@ -1,0 +1,40 @@
+# build outputs
+build/
+*.exe
+*.obj
+*.o
+*.pdb
+*.ilk
+*.exp
+*.lib
+
+# engine runtime artifacts
+*.wal
+*.snap
+engine.*
+tmp_*
+
+# regenerable benchmark data (the histogram PNG is committed; the raw CSV is not)
+docs/bench.csv
+data/synthetic*.csv
+# regenerable ITCH binary (produced by gen_itch)
+data/*.itch
+# real LOBSTER sample data (large; download from HF / lobsterdata — see docs/feed.md)
+# the small hand-written data/lobster_sample_message.csv stays committed.
+data/*_34200000_*.csv
+data/*_orderbook_*.csv
+data/LOBSTER_*
+
+# web
+web/node_modules/
+web/.next/
+web/out/
+web/next-env.d.ts
+
+# python
+__pycache__/
+.venv/
+
+# local editor / agent state
+.claude/
+.vscode/

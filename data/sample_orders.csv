@@ -1,0 +1,18 @@
+# action,side,type,id,price,qty,tif
+# A small hand-built scenario demonstrating limit/market/cancel matching.
+# Build the book, then aggress it.
+A,S,L,1,101,10,GTC
+A,S,L,2,102,10,GTC
+A,S,L,3,100,5,GTC
+A,B,L,4,99,8,GTC
+A,B,L,5,98,12,GTC
+# aggressive buy @101 should sweep ask 100 (5) then ask 101 (10) at maker prices
+A,B,L,6,101,12,GTC
+# cancel resting bid id=5
+C,,,5
+# market sell 6 hits best bid (id=4 @99)
+A,S,M,7,0,6
+# IOC buy that partially fills against 102 then drops remainder
+A,B,L,8,102,4,IOC
+# FOK buy for 100 @102 — not enough liquidity, should be rejected entirely
+A,B,L,9,102,100,FOK

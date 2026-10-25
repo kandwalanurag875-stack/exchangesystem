@@ -1,0 +1,53 @@
+:root {
+  --bg: #0b0e14;
+  --panel: #11151f;
+  --line: #1e2433;
+  --text: #cdd6f4;
+  --muted: #6c7086;
+  --blue: #89b4fa;
+  --green: #a6e3a1;
+  --red: #f38ba8;
+  --yellow: #f9e2af;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.45 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 32px 20px; }
+
+h1 { font-size: 17px; color: var(--blue); margin: 0 0 2px; }
+.sub { color: var(--muted); margin-bottom: 6px; }
+.status { font-size: 12px; margin-bottom: 20px; }
+.status .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.status.live .dot { background: var(--green); box-shadow: 0 0 8px var(--green); }
+.status.down .dot { background: var(--red); }
+
+.book { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+
+.row { position: relative; height: 24px; display: flex; align-items: center; }
+.row .bar { position: absolute; height: 19px; border-radius: 3px; opacity: 0.30; transition: width 0.12s linear; }
+.row.ask .bar { left: 50%; background: var(--red); }
+.row.bid .bar { right: 50%; background: var(--green); }
+.row .px { position: absolute; left: 50%; transform: translateX(-50%); width: 96px; text-align: center; z-index: 2; }
+.row .qty { position: absolute; z-index: 2; color: var(--muted); }
+.row.ask .qty { left: 10px; }
+.row.bid .qty { right: 10px; }
+
+.mid { height: 32px; display: flex; align-items: center; justify-content: center;
+  color: var(--yellow); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 3px 0; }
+
+.ticker { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 26px; }
+.ticker .cell b { display: block; color: var(--blue); font-size: 18px; }
+.ticker .cell span { color: var(--muted); font-size: 12px; }
+.up { color: var(--green); }
+.down { color: var(--red); }
+
+.note { margin-top: 28px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.note code { color: var(--text); }
